@@ -1,4 +1,25 @@
 
+expenses = []
+
+
+def add_expense():
+    global expenses
+
+    category = input("Category: ")
+    try:
+        amount = int(input("Amount: "))
+    except ValueError:
+        print("Invalid amount")
+        return
+    description = input("Description: ")
+
+    entry = {
+        "category": category,
+        "amount": amount,
+        "description": description,
+    }
+    expenses.append(entry)
+    print("expense added successfully")
 def daily():
     dtravel = int(input("how much did you spend on TRAVEL today? "))
     dfood = int(input("how much did you spend on FOOD today? "))
@@ -21,15 +42,23 @@ def monthly():
     if mtotal > 5000:
          print("Warning: You are spending a lot!")
     else:
-        print("you are safe") 
-what = input("what to track? daily(d)/monthly(m)?: ")
-what = what.upper()
-if what.startswith("D"):
+        print("you are safe")  
+what = input("What did you spend on? ")
+what = what.lower()
+if what.startswith("1"):
     daily()
-elif what.startswith("M"):
+elif what.startswith("2"):
     monthly()
+elif what.startswith("3"):
+    add_expense()
+elif what.startswith("4"):
+    ...
+elif what.startswith("5"):
+    ...
+elif what.startswith("6"):
+    where = input("Input where did you spend: ")
 else:
-    print("I can only claculate monthly and daily expenses.")
+    print("Please enter valid values ")
 
 
         
