@@ -4,7 +4,7 @@ import os
 tasks = []
 
 def save_tasks():
-    with open("tasks.jason", "w") as file:
+    with open("tasks.json", "w") as file:
         json.dump(tasks, file)
 
 def load_tasks():
@@ -38,6 +38,7 @@ def add():
         if y.strip() == "":
             return "please enter some task"
         tasks.append(y)
+        save_tasks()
         return f"Added: {y.strip()}" 
     elif t.startswith("show"):
         show()
