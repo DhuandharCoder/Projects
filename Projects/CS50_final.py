@@ -13,8 +13,12 @@ def load_tasks():
         with open("tasks.json", "r") as file:
             tasks = json.load(file)
 
-def clear():
-    ...
+def clear(n):
+    global tasks
+    tasks.pop(n)
+    save_tasks()
+
+    
 
 def show():
     for number, task in enumerate(tasks, 1):
@@ -45,7 +49,12 @@ def add():
         show()
         return ""
     elif t.startswith("clear"):
-        clear()
+        p, q = t.split("clear_", 1)
+        q = int(q)
+        q -= 1
+        clear(q)    
+        
+
 
     else:
         return "Invalid Input"
