@@ -1,11 +1,19 @@
 import json
+
+tasks = []
+
 def save_tasks():
     with open("tasks.jason", "w") as file:
         json.dump(tasks, file)
 
+def load_tasks():
+    global tasks
+
+    with open("tasks.json", "r") as file:
+        tasks = json.load(file)
 
 
-tasks = []
+
 def show():
     for number, task in enumerate(tasks, 1):
         print(f"{number}. {task}")
