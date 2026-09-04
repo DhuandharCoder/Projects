@@ -1,3 +1,10 @@
+import json
+def save_tasks():
+    with open("tasks.jason", "w") as file:
+        json.dump(tasks, file)
+
+
+
 tasks = []
 def show():
     for number, task in enumerate(tasks, 1):
@@ -13,6 +20,7 @@ def add():
         if b.strip() == "":
             return "please enter some task"
         tasks.append(b)
+        save_tasks()
         return f"Added: {b.strip()}"
 
 
