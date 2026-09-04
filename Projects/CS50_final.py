@@ -1,4 +1,5 @@
 import json
+import os
 
 tasks = []
 
@@ -8,9 +9,9 @@ def save_tasks():
 
 def load_tasks():
     global tasks
-
-    with open("tasks.json", "r") as file:
-        tasks = json.load(file)
+    if os.path.exists("tasks.json"):
+        with open("tasks.json", "r") as file:
+            tasks = json.load(file)
 
 
 
@@ -59,6 +60,7 @@ def main():
     
     
 if __name__ == "__main__":
+    load_tasks()
     main()
 
 
