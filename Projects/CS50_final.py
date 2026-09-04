@@ -13,7 +13,8 @@ def load_tasks():
         with open("tasks.json", "r") as file:
             tasks = json.load(file)
 
-
+def clear():
+    ...
 
 def show():
     for number, task in enumerate(tasks, 1):
@@ -43,6 +44,8 @@ def add():
     elif t.startswith("show"):
         show()
         return ""
+    elif t.startswith("clear"):
+        clear()
 
     else:
         return "Invalid Input"
