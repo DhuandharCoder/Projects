@@ -22,7 +22,8 @@ def clear(n):
     except IndexError:
         return "No such Task"
     
-
+def clear_all():
+    ...
     
 
 def show():
@@ -56,9 +57,13 @@ def add():
     elif t.startswith("clear"):
         
         p, q = t.split("clear_", 1)
-        q = int(q)
-        q -= 1
-        return clear(q) 
+        q = q.lower()
+        if q.startswith("all"):
+            clear_all()
+        else:
+            q = int(q)
+            q -= 1
+            return clear(q) 
         
             
 
