@@ -27,7 +27,7 @@ def clear_all():
     tasks.clear()
     save_tasks()
     return "Every Task cleared!"
-    ...
+
     
 
 def show():
@@ -63,7 +63,7 @@ def add():
         p, q = t.split("clear_", 1)
         q = q.lower()
         if q.startswith("all"):
-            clear_all()
+            return clear_all()
         else:
             q = int(q)
             q -= 1
