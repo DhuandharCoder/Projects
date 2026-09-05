@@ -18,7 +18,7 @@ def clear(n):
     try:
         tasks.pop(n)
         save_tasks()
-        return f"Task {n} cleared"
+        return f"Task {n+1} cleared"
     except IndexError:
         return "No such Task"
     
