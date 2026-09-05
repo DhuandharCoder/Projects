@@ -23,6 +23,10 @@ def clear(n):
         return "No such Task"
     
 def clear_all():
+    global tasks
+    tasks.clear()
+    save_tasks()
+    return "Every Task cleared!"
     ...
     
 
