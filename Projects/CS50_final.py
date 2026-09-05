@@ -58,7 +58,7 @@ def add():
         p, q = t.split("clear_", 1)
         q = int(q)
         q -= 1
-        clear(q) 
+        return clear(q) 
         
             
 
