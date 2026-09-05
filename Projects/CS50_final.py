@@ -15,8 +15,13 @@ def load_tasks():
 
 def clear(n):
     global tasks
-    tasks.pop(n)
-    save_tasks()
+    try:
+        tasks.pop(n)
+        save_tasks()
+        return f"Task {n} cleared"
+    except IndexError:
+        return "No such Task"
+    
 
     
 
@@ -49,11 +54,13 @@ def add():
         show()
         return ""
     elif t.startswith("clear"):
+        
         p, q = t.split("clear_", 1)
         q = int(q)
         q -= 1
-        clear(q)    
+        clear(q) 
         
+            
 
 
     else:
